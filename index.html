@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>La Casa del Habano - Accueil</title>
+<style>
+/* ==================== STYLES GLOBAUX ==================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; font-family:'Georgia', serif; scroll-behavior: smooth; background:#0a0604; color:#e8d4b0; -webkit-font-smoothing:antialiased; }
+a { text-decoration:none; color:inherit; }
+
+/* ==================== HEADER ==================== */
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1;
+  border-bottom: 2px solid #d4af37;
+}
+
+.logo { font-size: 56px; width: 120px; height: 120px; border-radius:50%; background: radial-gradient(circle,#8b6914,#6b5310); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 35px rgba(139,105,20,0.6); }
+.header-content h1 { font-size:2.8rem; color:#d4af37; text-transform:uppercase; letter-spacing:3px; }
+.header-content .lead { font-size:1rem; color:#d9c9a3; max-width:450px; margin-top:4px; }
+.nav-cards { display:flex; gap:16px; }
+.nav-cards .card { width:100px; padding:10px; border-radius:12px; background: linear-gradient(135deg, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); text-align:center; cursor:pointer; box-shadow:0 6px 20px rgba(139,105,20,0.4); transition: transform .2s, box-shadow .2s; }
+.nav-cards .card:hover { transform: translateY(-6px); box-shadow:0 10px 30px rgba(212,175,55,0.6); }
+.nav-cards .card .icon { font-size:24px; margin-bottom:4px; }
+.nav-cards .card p { font-size:0.9rem; color:#d4af37; margin:0; }
+
+/* ==================== SECTIONS ==================== */
+.container { max-width:1200px; margin:64px auto; padding:0 18px; position:relative; z-index:1; }
+.section-title { text-align:center; color:#d4af37; font-size:2.2rem; text-transform:uppercase; letter-spacing:3px; margin-bottom:22px; }
+
+/* ==================== CARDS ==================== */
+.cards { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; align-items:stretch; }
+.card { background: linear-gradient(135deg, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); border:2px solid rgba(139,105,20,0.35); width:320px; padding:22px; border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,0.6); transition: transform .28s ease, box-shadow .28s ease; cursor:pointer; text-align:center; }
+.card:hover { transform: translateY(-10px); box-shadow:0 20px 60px rgba(139,105,20,0.45); }
+.card .icon { font-size:36px; margin-bottom:14px; }
+.card h3 { color:#d4af37; margin-bottom:8px; text-transform:uppercase; letter-spacing:2px; }
+.card p { color:#e8d4b0; font-size:0.98rem; line-height:1.4; }
+
+/* ==================== BENEFITS ==================== */
+.benefits { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:12px; }
+.benefit-card { width:200px; padding:20px; border-radius:12px; background:linear-gradient(135deg,#8b6914,#6b5310); box-shadow:0 10px 30px rgba(0,0,0,0.5); color:#fff; text-align:center; transition: transform .22s ease; cursor:default; }
+.benefit-card:hover { transform: translateY(-8px); }
+.benefit-card .icon { font-size:28px; margin-bottom:8px; font-weight:700; }
+.benefit-card h4 { text-transform:uppercase; font-size:1rem; letter-spacing:1px; }
+
+/* ==================== CONTACT ==================== */
+.contact { margin-top:22px; background: rgba(42,24,16,0.45); padding:26px; border-radius:12px; border:2px solid rgba(139,105,20,0.25); text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.45); }
+.contact .line { margin:10px 0; font-size:1.08rem; color:#e8d4b0; }
+.contact .highlight { color:#d4af37; font-weight:700; margin-left:8px; }
+.copy-btn { background: linear-gradient(135deg,#8b6914,#6b5310); color:#fff; border:none; padding:8px 14px; margin-left:10px; border-radius:8px; cursor:pointer; transition:transform .18s; }
+.copy-btn:hover { transform: scale(1.04); }
+
+/* ==================== VIP ==================== */
+.vip { position: relative; background: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(139,105,20,0.95)); border:2px solid #d4af37; box-shadow:0 0 25px rgba(212,175,55,0.6),0 15px 45px rgba(0,0,0,0.5); transition: transform .3s ease, box-shadow .3s ease, background .3s ease; }
+.vip:hover { transform: translateY(-12px); box-shadow:0 0 40px rgba(212,175,55,0.8),0 20px 60px rgba(0,0,0,0.6); background: linear-gradient(135deg, rgba(255,223,85,0.95), rgba(139,105,20,0.95)); }
+.vip-badge { position: absolute; top: 12px; right: 12px; background: #d4af37; color: #1a0f0a; padding:6px 10px; border-radius:8px; font-weight:700; font-size:0.85rem; text-transform:uppercase; box-shadow:0 0 6px rgba(212,175,55,0.7); }
+.vip-btn { margin-top:14px; background:#d4af37; color:#1a0f0a; padding:10px 18px; border:none; border-radius:10px; cursor:pointer; font-weight:700; font-size:1rem; transition: transform .2s, box-shadow .2s; }
+.vip-btn:hover { transform: translateY(-3px); box-shadow:0 6px 20px rgba(212,175,55,0.7); }
+
+/* ==================== FOOTER ==================== */
+footer { margin-top:64px; padding:28px 12px; background: linear-gradient(to top, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); border-top:3px solid #8b6914; color:#a89060; text-align:center; font-style:italic; }
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width:880px){ 
+  .header-wrap { flex-direction:column; align-items:flex-start; gap:20px; } 
+  .nav-cards { justify-content:flex-start; } 
+  .cards { gap:16px; } 
+  .card { width:100%; max-width:420px; } 
+  .benefit-card { width:80%; max-width:320px; } 
+  h1 { font-size:2.2rem; } 
+  .lead { font-size:0.95rem; } 
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<div class="header-wrap">
+  <div class="header-content">
+    <div class="logo">🚬</div>
+    <h1>La Casa del Habano</h1>
+    <p class="lead">L'Excellence à Chaque Bouffée</p>
+  </div>
+  <div class="nav-cards">
+    <div class="card" onclick="location.href='produits.html'"><div class="icon">🛒</div><p>Produits</p></div>
+    <div class="card" onclick="location.href='prix.html'"><div class="icon">💰</div><p>Tarifs</p></div>
+    <div class="card" onclick="location.href='recrutement.html'"><div class="icon">📝</div><p>Recrutement</p></div>
+  </div>
+</div>
+
+<!-- ==================== POURQUOI NOUS CHOISIR ==================== -->
+<div class="container" id="pourquoi">
+  <h2 class="section-title">Pourquoi nous choisir ?</h2>
+  <div class="benefits">
+    <div class="benefit-card"><div class="icon">⭐</div><h4>Qualité Premium</h4></div>
+    <div class="benefit-card"><div class="icon">🎯</div><h4>Sélection Exclusive</h4></div>
+    <div class="benefit-card"><div class="icon">👔</div><h4>Service Expert</h4></div>
+    <div class="benefit-card"><div class="icon">💎</div><h4>Produits Uniques</h4></div>
+    <div class="benefit-card"><div class="icon">💰</div><h4>Prix Compétitifs</h4></div>
+  </div>
+</div>
+
+<!-- ==================== VIP ==================== -->
+<div class="container" id="vip">
+  <h2 class="section-title">Espace VIP</h2>
+  <div class="cards">
+    <div class="card vip">
+      <span class="vip-badge">VIP OUVERT</span>
+      <div class="icon">👑</div>
+      <h3>Accès VIP Premium</h3>
+      <p>Un espace réservé à une clientèle privilégiée.</p>
+      <ul class="vip-features">
+        <li>✔ Produits rares & éditions limitées</li>
+        <li>✔ Packs VIP exclusifs</li>
+        <li>✔ Priorité sur les nouveautés</li>
+        <li>✔ Salon Discord VIP privé</li>
+        <li>✔ Offres spéciales hebdomadaires</li>
+      </ul>
+      <button class="vip-btn" onclick="location.href='vip.html'">Accéder à l’espace VIP</button>
+    </div>
+    <div class="card vip-pack gold">
+      <div class="icon">💎</div>
+      <h3>Pack VIP Gold</h3>
+      <p>Sélection premium de cigares + boisson exclusive.</p>
+      <p class="price">149€</p>
+    </div>
+    <div class="card vip-pack ultra">
+      <div class="icon">🔥</div>
+      <h3>Pack Ultra VIP</h3>
+      <p>Produits d’exception + accessoires haut de gamme.</p>
+      <p class="price">299€</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div class="container" id="contact">
+  <h2 class="section-title">Nous contacter</h2>
+  <div class="contact">
+    <div class="line">📞 Téléphone : <span id="phone" class="highlight">555 929 25</span>
+      <button id="copyBtn" class="copy-btn">Copier</button>
+    </div>
+    <div id="copyMessage" style="color:#50c878; display:none; margin-top:8px;">Numéro copié !</div>
+    <div class="line">💬 Discord : <a class="highlight" href="https://discord.gg/5TChA2kkXt" target="_blank">Rejoignez-nous</a></div>
+  </div>
+</div>
+
+<footer>
+  <p>"La passion du cigare, l'excellence du service"</p>
+  <p>🔗 <a href="https://www.google.com" target="_blank">Visiter notre site partenaire</a></p>
+  <p>© 2024 La Casa del Habano - Tous droits réservés</p>
+</footer>
+
+
+<script>
+// --- Copier le numéro ---
+const copyBtn = document.getElementById('copyBtn');
+const phoneEl = document.getElementById('phone');
+const copyMessage = document.getElementById('copyMessage');
+copyBtn.addEventListener('click', async () => {
+  const text = phoneEl.textContent.trim();
+  if (navigator.clipboard) { await navigator.clipboard.writeText(text); }
+  else { const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+  copyMessage.style.display='block';
+  setTimeout(()=>copyMessage.style.display='none',1800);
+});
+</script>
+
+</body>
+</html>
