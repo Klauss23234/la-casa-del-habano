@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cigare Casa - Accueil</title>
+<style>
+/* ==================== STYLES GLOBAUX ==================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; }
+body {
+  font-family: 'Georgia', serif;
+  color: #e8d4b0;
+  background: #0a0604;
+  overflow-x: hidden;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior: smooth;
+}
+/* ==================== EFFET FUMÉE ANIMÉ ==================== */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(139,105,20,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(139,105,20,0.06) 0%, transparent 50%);
+  z-index:0;
+  pointer-events:none;
+  animation: smokeMove 18s linear infinite;
+}
+@keyframes smokeMove { 0% { transform: translate(0,0); } 50% { transform: translate(60px,40px); } 100% { transform: translate(0,0); } }
+/* ==================== HEADER ==================== */
+.header-wrap { position:relative; z-index:1; padding:40px 20px; text-align:center; }
+.logo { width:120px; height:120px; margin:0 auto 18px; border-radius:50%; background: radial-gradient(circle,#8b6914,#6b5310); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 35px rgba(139,105,20,0.6); font-size:56px; }
+h1 { font-size:3.4rem; color:#d4af37; text-transform:uppercase; letter-spacing:4px; text-shadow:2px 2px 10px rgba(0,0,0,0.8); margin-bottom:10px; }
+.lead { max-width:820px; margin:0 auto; color:#d9c9a3; font-size:1.15rem; line-height:1.5; }
+/* ==================== SECTIONS GLOBALES ==================== */
+.container { max-width:1200px; margin:64px auto; padding:0 18px; position:relative; z-index:1; }
+.section-title { text-align:center; color:#d4af37; font-size:2.2rem; text-transform:uppercase; letter-spacing:3px; margin-bottom:22px; }
+/* ==================== CARDS (produits / tarifs / recrutement) ==================== */
+.cards { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; align-items:stretch; }
+.card { background: linear-gradient(135deg, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); border:2px solid rgba(139,105,20,0.35); width:320px; padding:22px; border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,0.6); transition: transform .28s ease, box-shadow .28s ease; cursor:pointer; text-align:center; }
+.card:hover { transform: translateY(-10px); box-shadow:0 20px 60px rgba(139,105,20,0.45); }
+.card .icon { font-size:36px; margin-bottom:14px; }
+.card h3 { color:#d4af37; margin-bottom:8px; text-transform:uppercase; letter-spacing:2px; }
+.card p { color:#e8d4b0; font-size:0.98rem; line-height:1.4; }
+/* ==================== POURQUOI NOUS CHOISIR (benefits) ==================== */
+.benefits { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:12px; }
+.benefit-card { width:200px; padding:20px; border-radius:12px; background:linear-gradient(135deg,#8b6914,#6b5310); box-shadow:0 10px 30px rgba(0,0,0,0.5); color:#fff; text-align:center; transition: transform .22s ease; cursor:default; }
+.benefit-card:hover { transform: translateY(-8px); }
+.benefit-card .icon { font-size:28px; margin-bottom:8px; font-weight:700; }
+.benefit-card h4 { text-transform:uppercase; font-size:1rem; letter-spacing:1px; }
+/* ==================== CONTACT ==================== */
+.contact { margin-top:22px; background: rgba(42,24,16,0.45); padding:26px; border-radius:12px; border:2px solid rgba(139,105,20,0.25); text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.45); }
+.contact .line { margin:10px 0; font-size:1.08rem; color:#e8d4b0; }
+.contact .highlight { color:#d4af37; font-weight:700; margin-left:8px; }
+.copy-btn { background: linear-gradient(135deg,#8b6914,#6b5310); color:#fff; border:none; padding:8px 14px; margin-left:10px; border-radius:8px; cursor:pointer; transition:transform .18s; }
+.copy-btn:hover { transform: scale(1.04); }
+/* ==================== BOUTON RETOUR EN HAUT ==================== */
+#topBtn { display:none; position:fixed; right:24px; bottom:24px; background:#d4af37; color:#1a0f0a; border:none; padding:12px 14px; border-radius:999px; box-shadow:0 10px 30px rgba(139,105,20,0.4); cursor:pointer; z-index:999; transition:transform .18s; }
+#topBtn:hover { transform: translateY(-4px); }
+/* ==================== FOOTER ==================== */
+footer { margin-top:64px; padding:28px 12px; background: linear-gradient(to top, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); border-top:3px solid #8b6914; color:#a89060; text-align:center; font-style:italic; }
+/* ==================== VIP ==================== */
+.vip { position: relative; background: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(139,105,20,0.95)); border: 2px solid #d4af37; box-shadow: 0 0 25px rgba(212,175,55,0.6), 0 15px 45px rgba(0,0,0,0.5); transition: transform .3s ease, box-shadow .3s ease, background .3s ease; }
+.vip:hover { transform: translateY(-12px); box-shadow: 0 0 40px rgba(212,175,55,0.8), 0 20px 60px rgba(0,0,0,0.6); background: linear-gradient(135deg, rgba(255,223,85,0.95), rgba(139,105,20,0.95)); }
+.vip-badge { position:absolute; top:12px; right:12px; background:#d4af37; color:#1a0f0a; padding:6px 10px; border-radius:8px; font-weight:700; font-size:0.85rem; text-transform:uppercase; box-shadow:0 0 6px rgba(212,175,55,0.7); }
+.vip-btn { margin-top:14px; background:#d4af37; color:#1a0f0a; padding:10px 18px; border:none; border-radius:10px; cursor:pointer; font-weight:700; font-size:1rem; transition: transform .2s, box-shadow .2s; }
+.vip-btn:hover { transform: translateY(-3px); box-shadow:0 6px 20px rgba(212,175,55,0.7); }
+.vip-pack { border:2px solid rgba(212,175,55,0.4); background:linear-gradient(135deg, rgba(42,24,16,0.95), rgba(26,15,10,0.95)); transition: transform .28s ease, box-shadow .28s ease; }
+.vip-pack:hover { transform: translateY(-10px); box-shadow:0 18px 50px rgba(212,175,55,0.5); }
+.vip-pack.gold .price { color:#ffd700; font-weight:700; font-size:1.1rem; }
+.vip-pack.ultra .price { color:#ff8c00; font-weight:700; font-size:1.1rem; }
+/* ==================== RESPONSIVE ==================== */
+@media (max-width:880px){ .cards { gap:16px; } .card { width:100%; max-width:420px; } .benefit-card { width:80%; max-width:320px; } h1 { font-size:2.4rem; } .lead { font-size:1rem; padding:0 10px; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header-wrap">
+  <div class="logo">🚬</div>
+  <h1>Cigare Casa</h1>
+  <p class="lead">Votre univers premium dédié aux cigares, boissons et gourmandises. Qualité, sélection et service expert vous attendent.</p>
+</div>
+
+<!-- NOS PRODUITS, TARIFS & RECRUTEMENT -->
+<div class="container" id="produits-tarifs">
+  <h2 class="section-title">Nos produits & services</h2>
+  <div class="cards" role="list">
+    <div class="card" role="listitem" onclick="location.href='produits.html'" aria-label="Voir nos produits">
+      <div class="icon">🛒</div><h3>Nos Produits</h3>
+      <p>Explorez notre catalogue : cigares, cigarettes, boissons et gourmandises.</p>
+    </div>
+    <div class="card" role="listitem" onclick="location.href='prix.html'" aria-label="Voir nos tarifs">
+      <div class="icon">💰</div><h3>Nos Tarifs</h3>
+      <p>Consultez nos prix clairs et compétitifs.</p>
+    </div>
+    <div class="card" role="listitem" onclick="location.href='recrutement.html'" aria-label="Voir nos offres de recrutement">
+      <div class="icon">📝</div><h3>Recrutement</h3>
+      <p>Découvrez nos postes ouverts et rejoignez l'aventure.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VIP -->
+<div class="container" id="vip">
+  <h2 class="section-title">Espace VIP</h2>
+  <div class="cards">
+    <div class="card vip" onclick="location.href='vip.html'">
+      <span class="vip-badge">VIP OUVERT</span>
+      <div class="icon">👑</div>
+      <h3>Accès VIP Premium</h3>
+      <p>Un espace réservé à une clientèle privilégiée.</p>
+    </div>
+    <div class="card vip-pack gold" onclick="location.href='vip-gold.html'">
+      <div class="icon">💎</div><h3>Pack VIP Gold</h3>
+      <p>Sélection premium de cigares + boisson exclusive.</p>
+      <p class="price">149€</p>
+    </div>
+    <div class="card vip-pack ultra" onclick="location.href='vip-ultra.html'">
+      <div class="icon">🔥</div><h3>Pack Ultra VIP</h3>
+      <p>Produits d’exception + accessoires haut de gamme.</p>
+      <p class="price">299€</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="container" id="contact">
+  <h2 class="section-title">Nous contacter</h2>
+  <div class="contact" role="region" aria-label="Contact">
+    <div class="line">📞 Téléphone : <span id="phone" class="highlight">555 929 25</span>
+      <button id="copyBtn" class="copy-btn">Copier</button>
+    </div>
+    <div id="copyMessage" style="color:#50c878; display:none; margin-top:8px;">Numéro copié !</div>
+    <div class="line" style="margin-top:12px;">💬 Discord : <a class="highlight" href="https://discord.gg/5TChA2kkXt" target="_blank">Rejoignez-nous</a></div>
+  </div>
+</div>
+
+<!-- BOUTON RETOUR EN HAUT -->
+<button id="topBtn" title="Retour en haut">↑</button>
+
+<!-- FOOTER -->
+<footer>
+  <p>"La passion du cigare, l'excellence du service"</p>
+  <p>© 2024 Cigare Casa - Tous droits réservés</p>
+</footer>
+
+<script>
+// Copier le numéro
+const copyBtn = document.getElementById('copyBtn');
+const phoneEl = document.getElementById('phone');
+const copyMessage = document.getElementById('copyMessage');
+copyBtn.addEventListener('click', async () => {
+  const text = phoneEl.textContent.trim();
+  if (!navigator.clipboard) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showCopyMsg(); } catch(e){ alert('Impossible de copier'); }
+    document.body.removeChild(ta);
+    return;
+  }
+  try { await navigator.clipboard.writeText(text); showCopyMsg(); } catch(e){ alert('Impossible de copier'); }
+});
+function showCopyMsg(){ copyMessage.style.display='block'; setTimeout(()=>copyMessage.style.display='none',1800); }
+
+// Bouton retour en haut
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{ const sc=window.scrollY||document.documentElement.scrollTop; topBtn.style.display=sc>300?'block':'none'; });
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Accessibilité clavier
+document.querySelectorAll('.card').forEach(c=>{ c.tabIndex=0; c.addEventListener('keypress',e=>{ if(e.key==='Enter'||e.key===' ') c.click(); }); });
+</script>
+</body>
+</html>

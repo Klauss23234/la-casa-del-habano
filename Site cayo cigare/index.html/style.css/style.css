@@ -1,0 +1,71 @@
+/* CSS général */
+body {
+    font-family: 'Georgia', serif;
+    color: #e8d4b0;
+    background: #0a0604;
+    overflow-x: hidden;
+}
+
+/* Header et logo */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(10,6,4,0.8), rgba(26,15,10,0.8));
+}
+
+.logo {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, #8b6914, #6b5310);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    box-shadow: 0 10px 35px rgba(139,105,20,0.6);
+    margin-bottom: 30px;
+}
+
+/* Bouton */
+.btn {
+    background: linear-gradient(135deg, #d4af37,#8b6914);
+    color:#1a0f0a;
+    padding:20px 60px;
+    font-size:1.4em;
+    font-weight:bold;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(139,105,20,0.5);
+    transition:0.3s;
+}
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow:0 12px 35px rgba(212,175,55,0.7);
+    background: linear-gradient(135deg,#e8c456,#9b7920);
+}
+
+/* Section contact */
+.contact-section {
+    background: rgba(42,24,16,0.5);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid rgba(139,105,20,0.3);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.contact-highlight { color:#d4af37; font-weight:bold; }
+#copy-btn {
+    background: #8b6914;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#copy-btn:hover { background: #9b7920; }

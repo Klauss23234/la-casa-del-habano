@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cigare Casa - Nos Prix</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a0604, #1a0f0a, #2a1810);
+            color: #e8d4b0;
+            padding: 50px 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .menu-card {
+            background: linear-gradient(135deg, rgba(42,24,16,0.8), rgba(26,15,10,0.8));
+            border: 3px solid #8b6914;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        .menu-card h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .menu-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(139,105,20,0.3);
+        }
+        .menu-card li:last-child {
+            border-bottom: none;
+        }
+        .btn-back {
+            display: block;
+            text-align: center;
+            margin: 50px auto 0;
+            background: linear-gradient(135deg, #d4af37, #8b6914);
+            color: #1a0f0a;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            background: linear-gradient(135deg, #e8c456, #9b7920);
+        }
+    </style>
+</head>
+<body>
+    <h1>Nos Prix</h1>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <h2>Cigares</h2>
+            <ul>
+                <li>Partagas - €15</li>
+                <li>Veridians - €12</li>
+                <li>Robusto Cubain - €20</li>
+            </ul>
+        </div>
+        <div class="menu-card">
+            <h2>Cigarettes</h2>
+            <ul>
+                <li>Debonaires - €8</li>
+                <li>Redwood - €9</li>
+            </ul>
+        </div>
+        <div class="menu-card">
+            <h2>Boissons</h2>
+            <ul>
+                <li>Cedrata - €5</li>
+                <li>Fruity Purple - €6</li>
+                <li>Red Velvet - €6</li>
+            </ul>
+        </div>
+    </div>
+    <a href="index.html" class="btn-back">Retour à l'accueil</a>
+</body>
+</html>
